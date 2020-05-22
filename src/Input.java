@@ -14,17 +14,18 @@ public class Input {
          months = Integer.parseInt(JOptionPane.showInputDialog("Write the number of months: "));
          monthly_rate=annual_rate/1200;
       
-        
+      
          if(loan<0 || annual_rate<0||months<0) {
             JOptionPane.showMessageDialog(null, "The following values should not be negative!");
             insert();}
-      
       	
       }
-      catch(Exception e) {
+        catch(NumberFormatException e) {
          JOptionPane.showMessageDialog(null, "Please write a valid numerical value!");
-         insert();}
-   
-   	
+         insert();    
+         }
+      catch(NullPointerException e) {
+    	  System.exit(0);
+      } 	
    }  
 }
